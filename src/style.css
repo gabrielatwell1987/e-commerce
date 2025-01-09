@@ -152,3 +152,29 @@ img {
     transition: transform 0.5s;
   }
 }
+
+a {
+  text-decoration: none;
+}
+
+.gh i {
+  font-size: clamp(1rem, 3vw, 2.5rem);
+  color: #333;
+  transition: scale 0.2s;
+  margin-left: 1rem;
+
+  &:hover {
+    scale: 1.1;
+    color: #0d0d0d;
+    transition: scale 0.2s, color 0.2s;
+  }
+}
+
+footer {
+  text-align: center;
+  margin-top: 1rem;
+
+  & h2 {
+    font-size: clamp(1.5rem, 1.5vw, 2.5rem);
+  }
+}
