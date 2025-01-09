@@ -103,12 +103,12 @@ function displayProducts(products) {
             <p class="item-count" id="count-${product.id}">In Cart: 0</p>
             <div class="button-group">
                 <button class="add-to-cart" onclick="addToCart(${product.id})">
-                    Add to Cart
+                    <i class="fa-solid fa-plus"></i>
                 </button>
                 <button class="remove-from-cart" onclick="removeFromCart(${
                   product.id
                 })">
-                    Remove
+                    <i class="fa-solid fa-minus"></i>
                 </button>
             </div>
         `;
