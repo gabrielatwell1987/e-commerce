@@ -1,52 +1,5 @@
 import "./style.css";
 
-// const API_URL = "https://fakestoreapi.com/products";
-// let cartCount = 0;
-
-// async function fetchProducts() {
-//   try {
-//     const response = await fetch(API_URL);
-//     const products = await response.json();
-//     displayProducts(products);
-//   } catch (error) {
-//     console.error("Error fetching products:", error);
-//     document.getElementById("products-grid").innerHTML =
-//       "<p>Error loading products. Please try again later.</p>";
-//   }
-// }
-
-// function displayProducts(products) {
-//   const productsGrid = document.getElementById("products-grid");
-
-//   products.forEach((product) => {
-//     const productCard = document.createElement("div");
-//     productCard.className = "product-card";
-
-//     productCard.innerHTML = `
-//             <img src="${product.image}" alt="${
-//       product.title
-//     }" class="product-image">
-//             <h2 class="product-title">${product.title}</h2>
-//             <p class="product-price">$${product.price.toFixed(2)}</p>
-//             <p class="product-description">${product.description}</p>
-//             <button class="add-to-cart" onclick="addToCart(${product.id})">
-//                 Add to Cart
-//             </button>
-//         `;
-
-//     productsGrid.appendChild(productCard);
-//   });
-// }
-
-// window.addToCart = function (productId) {
-//   cartCount++;
-//   document.getElementById("cart-count").textContent = cartCount;
-//   // You could add more cart functionality here
-// };
-
-// // Initialize
-// document.addEventListener("DOMContentLoaded", fetchProducts);
-
 const API_URL = "https://fakestoreapi.com/products";
 let cartItems = {};
 
