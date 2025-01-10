@@ -44,8 +44,9 @@ header {
   & h1 {
     font-family: var(--crete), serif;
     font-size: clamp(1.5rem, 5vw, 3.5rem);
-    letter-spacing: 5px;
-    color: #333;
+    font-weight: 700;
+    letter-spacing: 7px;
+    color: hsl(0, 0%, 7%);
   }
 }
 

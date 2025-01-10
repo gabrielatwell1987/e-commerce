@@ -12,11 +12,14 @@ async function fetchProducts() {
   try {
     // Check cache first
     const cachedData = getCachedProducts();
+
     if (cachedData) {
       displayProducts(cachedData);
+
       hideLoading();
       // Fetch fresh data in background
       updateCacheInBackground();
+
       return;
     }
 
@@ -28,10 +31,13 @@ async function fetchProducts() {
 
     // Display products and hide loading
     displayProducts(products);
+
     hideLoading();
   } catch (error) {
     console.error("Error fetching products:", error);
+
     const loadingContainer = document.getElementById("loading-container");
+
     loadingContainer.innerHTML = `
             <div style="text-align: center; color: #e74c3c;">
                 Error loading products.<br>Please try again later.
@@ -42,14 +48,21 @@ async function fetchProducts() {
 
 function showLoading() {
   const loadingContainer = document.getElementById("loading-container");
+  const mainContent = document.getElementById("main-content");
+
   loadingContainer.classList.remove("hidden");
+  mainContent.classList.remove("visible");
 }
 
 function hideLoading() {
   const loadingContainer = document.getElementById("loading-container");
+  const mainContent = document.getElementById("main-content");
+
   if (loadingContainer) {
     loadingContainer.classList.add("hidden");
   }
+
+  mainContent.classList.add("visible");
 }
 
 // Rest of the JavaScript remains the same...

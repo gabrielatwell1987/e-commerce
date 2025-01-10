@@ -33,12 +33,21 @@
       }
 
       .spinner {
-        width: 50px;
-        height: 50px;
+        width: 5rem;
+        height: 5rem;
         border: 10px solid #cfcfcf;
-        border-top: 10px solid hsl(236, 100%, 23%);
+        border-top: 0.7rem solid hsl(236, 100%, 23%);
         border-radius: 50%;
         animation: spin 1s linear infinite;
+      }
+
+      .main-content {
+        opacity: 0;
+        transition: opacity 0.3s ease-in;
+      }
+
+      .main-content.visible {
+        opacity: 1;
       }
 
       @keyframes spin {
@@ -56,16 +65,18 @@
       <div class="spinner"></div>
     </div>
 
-    <div class="container">
-      <header>
-        <h1>Products</h1>
+    <div id="main-content" class="main-content">
+      <div class="container">
+        <header>
+          <h1>Products</h1>
 
-        <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
-      </header>
+          <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
+        </header>
 
-      <main>
-        <div id="products-grid"></div>
-      </main>
+        <main>
+          <div id="products-grid"></div>
+        </main>
+      </div>
 
       <footer>
         <h2>
