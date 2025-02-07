@@ -204,21 +204,22 @@ button {
     text-decoration-color: hsl(236, 94%, 67%);
     color: hsl(236, 94%, 67%);
   }
-}
 
-.close {
-  position: absolute;
-  right: 30px;
-  top: 0;
-  font-family: "Kanit", sans-serif;
-  font-size: clamp(3rem, 4vw, 6rem);
-  font-weight: 700;
-  transition: color 0.25s;
+  & .close {
+    position: sticky;
+    top: -1rem;
+    right: 1rem;
+    font-family: "Kanit", sans-serif;
+    font-size: clamp(4rem, 7vw, 6rem);
+    font-weight: 700;
+    transition: color 0.25s;
+    -webkit-text-stroke: 0.0005rem #666;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  &:hover {
-    color: hsl(0, 96%, 27%);
+    &:hover {
+      opacity: 0.9;
+    }
   }
 }
 
