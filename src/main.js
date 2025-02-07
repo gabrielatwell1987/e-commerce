@@ -30,6 +30,12 @@ async function fetchProducts() {
   }
 }
 
+// Get quantity for specific product
+function getProductQuantity(productId) {
+  const cartItem = cart.find((item) => item.id === productId);
+  return cartItem ? cartItem.quantity : 0;
+}
+
 // Render products to grid
 function renderProducts() {
   productsGrid.innerHTML = products
@@ -47,6 +53,9 @@ function renderProducts() {
                 <button onclick="addToCart(${product.id})" class="add-to-cart">
                     <i class="fa-solid fa-plus"></i>
                 </button>
+                <span class="item-quantity" id="quantity-${product.id}">
+                        ${getProductQuantity(product.id)}
+                    </span>
                 <button onclick="removeFromCart(${
                   product.id
                 })" class="remove-from-cart">
@@ -71,6 +80,7 @@ function addToCart(productId) {
   }
 
   updateCartUI();
+  updateProductQuantity(productId);
 }
 
 // Remove item from cart
@@ -84,6 +94,15 @@ function removeFromCart(productId) {
     }
   }
   updateCartUI();
+  updateProductQuantity(productId);
+}
+
+// Update quantity display for specific product
+function updateProductQuantity(productId) {
+  const quantityElement = document.getElementById(`quantity-${productId}`);
+  if (quantityElement) {
+    quantityElement.textContent = getProductQuantity(productId);
+  }
 }
 
 // Update cart UI elements
