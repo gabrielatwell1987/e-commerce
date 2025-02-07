@@ -73,14 +73,40 @@
           <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
         </header>
 
-        <main>
-          <div id="products-grid"></div>
-        </main>
+        <div id="products-grid"></div>
+      </div>
+
+      <div id="cart-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+
+          <h2>Shopping Cart</h2>
+
+          <div class="cart-modal-body"></div>
+
+          <h3>Total: $<span id="cart-total">0</span></h3>
+          <h2>Payment Details</h2>
+
+          <form id="payment-form">
+            <label>Name on Card</label>
+            <input type="text" required />
+
+            <label>Card Number</label>
+            <input type="number" required />
+
+            <label>Expiration Date</label>
+            <input type="number" required />
+
+            <label>CVV</label>
+            <input type="number" required />
+
+            <button id="checkout-button" type="submit">Pay Now</button>
+          </form>
+        </div>
       </div>
 
       <footer>
         <h2>
-          Github Repo:
           <a
             href="https://github.com/gabrielatwell1987/e-commerce"
             target="_blank"

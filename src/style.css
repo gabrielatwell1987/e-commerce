@@ -1,31 +1,15 @@
 @font-face {
-  font-family: "Crete";
-  font-style: normal;
-  font-weight: 400;
+  font-family: "Crete Round";
   src: url("/fonts/CreteRound-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "Kanit";
-  font-style: normal;
-  font-weight: 400;
   src: url("/fonts/Kanit-Regular.ttf") format("truetype");
-}
-
-:root {
-  --kanit: "Kanit", sans-serif;
-  --crete: "Crete", serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: var(--kanit), sans-serif;
-  background-color: #f5f5f5;
+  font-weight: normal;
+  font-style: normal;
 }
 
 .container {
@@ -38,144 +22,253 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-  margin-bottom: 40px;
+  padding: 1.2rem 0;
 
   & h1 {
-    font-family: var(--crete), serif;
+    font-family: "Crete Round", serif;
     font-size: clamp(1.5rem, 5vw, 3.5rem);
-    font-weight: 700;
-    letter-spacing: 7px;
-    color: hsl(0, 0%, 7%);
+    color: hsl(236, 94%, 67%);
+    letter-spacing: 25px;
   }
 }
 
 .cart-icon {
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: 24px;
   cursor: pointer;
+  position: relative;
+
+  & #cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: hsl(0, 100%, 60%);
+    color: hsl(0, 0%, 100%);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+  }
 }
 
 #products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
+  padding: 20px 0;
 }
 
 .product-card {
-  background: white;
+  border: 1px solid #ddd;
+  background-color: #eee;
   border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.5s;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 
-  &:hover {
-    transform: translateY(-5px);
+  & img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    translate: 0 0;
+
+    &:hover {
+      translate: 0 -2%;
+      transition: translate 0.5s ease;
+    }
+  }
+
+  & h3 {
+    margin: 0.05rem 0;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    padding: 0.25rem;
+    margin-inline: auto;
+    font-family: "Kanit", sans-serif;
+    text-align: center;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 
-.product-image {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  margin-bottom: 15px;
-}
-
-.product-title {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.product-price {
-  font-size: 1.2rem;
-  color: hsl(130, 63%, 29%);
+.price {
+  font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: bold;
-  margin-bottom: 15px;
+  color: hsl(120, 100%, 35%);
+  margin-inline: auto;
+  margin-block: -0.5rem;
 }
 
-.product-description {
-  font-size: 0.9rem;
+.description {
   color: #666;
-  margin-bottom: 15px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-size: 0.9rem;
 }
 
-.button-group {
+.product-buttons {
   display: flex;
   gap: 10px;
+  margin-top: auto;
 }
 
-.add-to-cart,
-.remove-from-cart {
-  flex: 1;
-  padding: 10px;
+button {
+  padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s;
-  font-family: var(--kanit), sans-serif;
-  font-size: clamp(0.8rem, 1vw, 1rem);
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: hsl(0, 0%, 91%);
+  transition: background-color 0.3s;
 }
 
 .add-to-cart {
-  background-color: hsl(145, 63%, 49%);
+  background-color: hsl(236, 100%, 53%);
+  padding: 0.5rem 1.5rem;
+  color: white;
+  margin-inline: auto;
 
   &:hover {
-    background-color: hsl(145, 63%, 39%);
+    opacity: 0.9;
   }
 }
 
 .remove-from-cart {
-  background-color: hsl(6, 78%, 57%);
+  background-color: hsl(0, 100%, 60%);
+  padding: 0.5rem 1.5rem;
+  color: white;
+  margin-inline: auto;
 
   &:hover {
-    background-color: hsl(6, 63%, 47%);
+    opacity: 0.9;
   }
 }
 
-.item-count {
-  text-align: center;
-  margin: 10px 0;
-  font-weight: bold;
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
-img {
-  transition: transform 0.5s;
+.modal-content {
+  background-color: white;
+  margin-inline: auto;
+  margin-block: 2%;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  position: relative;
+}
 
-  &:hover {
-    transform: scale(1.05);
-    transition: transform 0.5s;
+.close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+
+  & img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
   }
 }
 
-a {
-  text-decoration: none;
+.cart-item-details {
+  flex-grow: 1;
 }
 
-.gh i {
-  font-size: clamp(1rem, 3vw, 2.5rem);
-  color: #333;
-  transition: scale 0.2s;
-  margin-left: 1rem;
+#payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+
+  & input {
+    padding: 8px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    width: 90%;
+    margin-inline: auto;
+    text-align: center;
+
+    &:nth-of-type(1) {
+      width: 80%;
+      margin-bottom: 1rem;
+    }
+
+    &:nth-of-type(2) {
+      width: 90%;
+      margin-bottom: 1rem;
+    }
+
+    &:nth-of-type(3) {
+      width: 40%;
+      margin-bottom: 1rem;
+    }
+
+    &:nth-of-type(4) {
+      width: 15%;
+      margin-bottom: 1.5rem;
+    }
+
+    &:user-valid {
+      border-color: hsl(120, 100%, 35%);
+    }
+
+    &:user-invalid {
+      border-color: hsl(0, 100%, 60%);
+    }
+  }
+
+  & label {
+    margin-inline: auto;
+    margin-block: -0.5rem;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    font-weight: bold;
+    opacity: 0.6;
+  }
+}
+
+#checkout-button {
+  width: fit-content;
+  margin-inline: auto;
+  padding: 0.5rem 1.5rem;
+  background-color: hsl(236, 100%, 53%);
+  color: #ccc;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 600;
 
   &:hover {
-    scale: 1.1;
-    color: #0d0d0d;
-    transition: scale 0.2s, color 0.2s;
+    opacity: 0.9;
   }
 }
 
 footer {
   text-align: center;
-  margin-top: 1rem;
+  padding: 20px;
+  margin-top: 40px;
 
-  & h2 {
-    font-size: clamp(1.5rem, 1.5vw, 2.5rem);
+  & .gh {
+    color: #000;
+    font-size: clamp(1rem, 5vw, 4rem);
+
+    &:hover {
+      color: #333;
+    }
   }
 }
