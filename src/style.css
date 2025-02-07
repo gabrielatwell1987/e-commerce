@@ -243,8 +243,26 @@ button {
 #payment-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 1.2rem;
+  gap: 1.2rem 0;
+
+  & .one-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem 1rem;
+
+    & label {
+      font-size: clamp(0.8rem, 1vw, 0.9rem);
+    }
+
+    &:nth-child(1) {
+      width: 15%;
+    }
+
+    &:nth-child(2) {
+      width: 10%;
+    }
+  }
 
   & input {
     padding: 8px;
@@ -268,7 +286,7 @@ button {
     color: #000;
     margin-inline: left;
     margin-block: -0.5rem;
-    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    font-size: clamp(0.8rem, 1vw, 1rem);
     font-weight: bold;
   }
 }
