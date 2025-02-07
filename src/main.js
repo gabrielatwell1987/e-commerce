@@ -6,7 +6,8 @@ let cart = [];
 
 // DOM Elements
 const productsGrid = document.getElementById("products-grid");
-const cartCount = document.getElementById("cart-count");
+const cartCountHeader = document.getElementById("cart-count-header");
+const cartCountParagraph = document.getElementById("cart-count-paragraph");
 const cartModal = document.getElementById("cart-modal");
 const cartModalBody = document.querySelector(".cart-modal-body");
 const cartTotal = document.getElementById("cart-total");
@@ -34,7 +35,7 @@ function renderProducts() {
   productsGrid.innerHTML = products
     .map(
       (product) => `
-        <div class="product-card">
+        <div class="product-card" id="product-card-${product.id}">
             <img src="${product.image}" alt="${product.title}">
             <h3>${product.title}</h3>
             <p class="price">$${product.price.toFixed(2)}</p>
@@ -89,7 +90,18 @@ function removeFromCart(productId) {
 function updateCartUI() {
   // Update cart count
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  cartCount.textContent = totalItems;
+  cartCountHeader.textContent = totalItems;
+  cartCountParagraph.textContent = totalItems;
+
+  // Update item count for each product card
+  cart.forEach((item) => {
+    const itemCountElement = document.getElementById(
+      `cart-count-paragraph-${item.id}`
+    );
+    if (itemCountElement) {
+      itemCountElement.textContent = item.quantity;
+    }
+  });
 
   // Update cart modal content
   updateCartModal();

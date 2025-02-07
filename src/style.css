@@ -35,6 +35,19 @@ header {
   }
 }
 
+p {
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: bold;
+
+  & .card-count-paragraph {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: bold;
+    color: #666;
+    margin-inline: auto;
+  }
+}
+
 .cart-icon {
   font-size: 24px;
   cursor: pointer;
