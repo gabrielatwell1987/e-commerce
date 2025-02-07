@@ -12,6 +12,10 @@
   font-style: normal;
 }
 
+body {
+  background-color: #eee;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -28,7 +32,6 @@ header {
     font-family: "Crete Round", serif;
     font-size: clamp(1.5rem, 5vw, 3.5rem);
     color: hsl(236, 94%, 67%);
-    letter-spacing: 25px;
   }
 }
 
@@ -53,17 +56,19 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
-  padding: 20px 0;
+  place-items: center;
+  margin-inline: auto;
 }
 
 .product-card {
   border: 1px solid #ddd;
-  background-color: #eee;
+  background-color: #fff;
   border-radius: 8px;
   padding: 1.1rem;
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  margin-right: 1rem;
 
   & img {
     width: 100%;
@@ -149,6 +154,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
+  margin-inline: auto;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
@@ -170,7 +176,7 @@ button {
   position: absolute;
   right: 20px;
   top: 10px;
-  font-size: 28px;
+  font-size: clamp(3rem, 4vw, 2rem);
   cursor: pointer;
 }
 
