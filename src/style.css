@@ -197,14 +197,29 @@ button {
   overflow-y: auto;
   border-radius: 8px;
   position: relative;
+
+  & h2 {
+    font-family: "Crete Round", serif;
+    text-decoration: underline;
+    text-decoration-color: hsl(236, 94%, 67%);
+    color: hsl(236, 94%, 67%);
+  }
 }
 
 .close {
   position: absolute;
-  right: 20px;
-  top: 10px;
-  font-size: clamp(3rem, 4vw, 2rem);
+  right: 30px;
+  top: 0;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(3rem, 4vw, 6rem);
+  font-weight: 700;
+  transition: color 0.25s;
+
   cursor: pointer;
+
+  &:hover {
+    color: hsl(0, 96%, 27%);
+  }
 }
 
 .cart-item {
@@ -228,14 +243,14 @@ button {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 20px;
+  margin-top: 1.2rem;
 
   & input {
     padding: 8px;
     border: 2px solid #ddd;
     border-radius: 4px;
     font-size: clamp(0.9rem, 1vw, 1.1rem);
-    width: 90%;
+    width: 97%;
     margin-inline: auto;
     text-align: center;
 
@@ -249,11 +264,11 @@ button {
   }
 
   & label {
-    margin-inline: auto;
+    color: #000;
+    margin-inline: left;
     margin-block: -0.5rem;
     font-size: clamp(0.9rem, 1vw, 1.1rem);
     font-weight: bold;
-    opacity: 0.6;
   }
 }
 
@@ -262,9 +277,11 @@ button {
   margin-inline: auto;
   padding: 0.5rem 1.5rem;
   background-color: hsl(236, 100%, 53%);
-  color: #ccc;
+  color: hsl(0, 0%, 100%);
+  font-family: "Kanit", sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: 600;
+  letter-spacing: 2px;
 
   &:hover {
     opacity: 0.9;
@@ -300,4 +317,23 @@ footer {
   font-weight: bold;
   min-width: 30px;
   text-align: center;
+}
+
+.cart-summary {
+  padding-top: 1rem;
+
+  & .summary-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 1rem;
+  }
+
+  & .summary-line.total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-top: 1px solid #ddd;
+    margin-top: 8px;
+    padding-top: 12px;
+  }
 }

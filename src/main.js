@@ -3,6 +3,7 @@ import "./style.css";
 // State management
 let products = [];
 let cart = [];
+const TAX_RATE = 0.08875;
 
 // DOM Elements
 const productsGrid = document.getElementById("products-grid");
@@ -143,8 +144,33 @@ function updateCartModal() {
     )
     .join("");
 
+  // Calculate subtotal, tax, and total
+  const subtotal = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+  const tax = subtotal * TAX_RATE;
+  const total = subtotal + tax;
+
+  // Update the display with subtotal, tax, and total
+  cartModalBody.innerHTML += `
+    <div class="cart-summary">
+        <div class="summary-line">
+            <span>Subtotal:</span>
+            <span>$${subtotal.toFixed(2)}</span>
+        </div>
+        <div class="summary-line">
+            <span>Tax (8.875%):</span>
+            <span>$${tax.toFixed(2)}</span>
+        </div>
+        <div class="summary-line total">
+            <span>Total:   </span>
+            <span>$${total.toFixed(2)}</span>
+        </div>
+    </div>
+  `;
+
   // Update total
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   cartTotal.textContent = total.toFixed(2);
 }
 
