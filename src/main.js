@@ -182,12 +182,18 @@ function hideLoading() {
 
 // Modal handlers
 function openModal() {
-  cartModal.style.display = "block";
+  cartModal.style.display = "flex";
+  cartModal.offsetHeight;
+  cartModal.classList.add("active");
   updateCartModal();
 }
 
 function closeModal() {
-  cartModal.style.display = "none";
+  // cartModal.style.display = "none";
+  cartModal.classList.remove("active");
+  setTimeout(() => {
+    cartModal.style.display = "none";
+  }, 500);
 }
 
 // Event Listeners
