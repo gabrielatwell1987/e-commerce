@@ -228,7 +228,7 @@ button {
   & .close {
     position: sticky;
     top: -1rem;
-    right: 1rem;
+    left: 85%;
     font-family: "Kanit", sans-serif;
     font-size: clamp(4rem, 7vw, 6rem);
     font-weight: 700;
