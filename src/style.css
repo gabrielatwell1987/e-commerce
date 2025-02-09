@@ -154,6 +154,7 @@ button {
   color: #242424;
   margin-inline: auto;
   font-size: clamp(1rem, 1.5vw, 1.25rem);
+  cursor: pointer;
 
   &:hover {
     background-color: hsl(0, 0%, 65%);
@@ -166,6 +167,7 @@ button {
   color: #242424;
   margin-inline: auto;
   font-size: clamp(1rem, 1.5vw, 1.25rem);
+  cursor: pointer;
 
   &:hover {
     background-color: hsl(0, 0%, 66%);
@@ -348,6 +350,7 @@ button {
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: 600;
   letter-spacing: 2px;
+  cursor: pointer;
 
   &:hover {
     background-color: hsl(0, 0%, 65%);
