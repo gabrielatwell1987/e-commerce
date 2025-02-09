@@ -149,26 +149,26 @@ button {
 }
 
 .add-to-cart {
-  background-color: hsl(236, 100%, 53%);
+  background-color: hsl(0, 0%, 75%);
   padding: 0.5rem 1.25rem;
-  color: white;
+  color: #242424;
   margin-inline: auto;
   font-size: clamp(1rem, 1.5vw, 1.25rem);
 
   &:hover {
-    background-color: hsl(236, 100%, 63%);
+    background-color: hsl(0, 0%, 65%);
   }
 }
 
 .remove-from-cart {
-  background-color: hsl(0, 100%, 60%);
+  background-color: hsl(0, 0%, 75%);
   padding: 0.5rem 1.25rem;
-  color: white;
+  color: #242424;
   margin-inline: auto;
   font-size: clamp(1rem, 1.5vw, 1.25rem);
 
   &:hover {
-    background-color: hsl(0, 100%, 70%);
+    background-color: hsl(0, 0%, 66%);
   }
 }
 
@@ -233,12 +233,16 @@ button {
     font-size: clamp(4rem, 7vw, 6rem);
     font-weight: 700;
     transition: color 0.25s;
-    -webkit-text-stroke: 0.0005rem #666;
+    color: hsl(0, 0%, 14%);
 
     cursor: pointer;
 
     &:hover {
-      opacity: 0.9;
+      color: hsl(0, 0%, 24%);
+    }
+
+    @media (max-width: 500px) {
+      top: 0.5rem;
     }
   }
 }
@@ -331,15 +335,15 @@ button {
   width: fit-content;
   margin-inline: auto;
   padding: 0.5rem 1.5rem;
-  background-color: hsl(236, 100%, 53%);
-  color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 75%);
+  color: hsl(0, 0%, 14%);
   font-family: "Kanit", sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: 600;
   letter-spacing: 2px;
 
   &:hover {
-    opacity: 0.9;
+    background-color: hsl(0, 0%, 65%);
   }
 }
 
