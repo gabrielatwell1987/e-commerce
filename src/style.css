@@ -225,10 +225,14 @@ button {
     }
   }
 
+  & h3 {
+    font-family: "Kanit", sans-serif;
+  }
+
   & .close {
     position: sticky;
     top: -1rem;
-    left: 85%;
+    left: 90%;
     font-family: "Kanit", sans-serif;
     font-size: clamp(4rem, 7vw, 6rem);
     font-weight: 700;
@@ -288,6 +292,8 @@ button {
 
     & label {
       font-size: clamp(0.8rem, 1vw, 0.9rem);
+      margin-block: auto;
+      line-height: 1;
     }
 
     &:nth-child(1) {
@@ -320,6 +326,7 @@ button {
   & label {
     color: #000;
     margin-inline: left;
+    font-family: "Kanit", sans-serif;
     font-size: clamp(0.8rem, 1vw, 1rem);
     font-weight: bold;
     margin-bottom: -0.75rem;
@@ -383,14 +390,20 @@ footer {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0 0 0;
+    font-family: "Kanit", sans-serif;
     font-size: clamp(0.9rem, 1vw, 1rem);
   }
 
   & .summary-line.total {
+    font-family: "Kanit", sans-serif;
     font-weight: bold;
     font-size: clamp(0.9rem, 1vw, 1rem);
     border-top: 1px solid #ddd;
     margin-top: 8px;
     padding-top: 12px;
   }
+}
+
+#cart-total {
+  font-family: "Crete Round", serif;
 }

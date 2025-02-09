@@ -189,7 +189,6 @@ function openModal() {
 }
 
 function closeModal() {
-  // cartModal.style.display = "none";
   cartModal.classList.remove("active");
   setTimeout(() => {
     cartModal.style.display = "none";
