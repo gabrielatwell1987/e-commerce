@@ -361,11 +361,15 @@ footer {
   text-align: center;
   padding: 20px;
   margin-top: 40px;
+  position: relative;
 
   & .gh {
     color: #000;
     font-size: clamp(1rem, 5vw, 4rem);
     transition: color 0.5s;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
 
     &:hover {
       color: #242424;
