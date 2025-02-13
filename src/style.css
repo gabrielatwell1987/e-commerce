@@ -12,6 +12,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Gravitas One";
+  src: url("/fonts/GravitasOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background-color: #eee;
 }
@@ -27,10 +34,14 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 
   & h1 {
-    font-family: "Crete Round", serif;
+    font-family: "Gravitas One", serif;
     font-size: clamp(1.5rem, 5vw, 3.5rem);
+    font-weight: 900;
     color: hsl(236, 94%, 67%);
     letter-spacing: 7px;
 
@@ -57,6 +68,10 @@ p {
   font-size: 24px;
   cursor: pointer;
   position: relative;
+  background-color: #fff;
+  padding: clamp(0.25rem, 1vw, 1rem) clamp(0.5rem, 1vw, 1.25rem);
+  border-radius: 10px;
+  border: 1px solid #ddd;
 
   & #cart-count {
     position: absolute;
@@ -149,7 +164,7 @@ button {
 }
 
 .add-to-cart {
-  background-color: hsl(0, 0%, 75%);
+  background-color: hsl(225, 91%, 79%);
   padding: 0.5rem 1.25rem;
   color: #242424;
   margin-inline: auto;
@@ -157,12 +172,12 @@ button {
   cursor: pointer;
 
   &:hover {
-    background-color: hsl(0, 0%, 65%);
+    background-color: hsl(225, 91%, 73%);
   }
 }
 
 .remove-from-cart {
-  background-color: hsl(0, 0%, 75%);
+  background-color: hsl(225, 91%, 79%);
   padding: 0.5rem 1.25rem;
   color: #242424;
   margin-inline: auto;
@@ -170,7 +185,7 @@ button {
   cursor: pointer;
 
   &:hover {
-    background-color: hsl(0, 0%, 66%);
+    background-color: hsl(225, 91%, 73%);
   }
 }
 
@@ -365,9 +380,9 @@ footer {
 
   & .gh {
     color: #000;
-    font-size: clamp(1rem, 5vw, 4rem);
+    font-size: clamp(2em, 2vw, 3em);
     transition: color 0.5s;
-    position: absolute;
+    position: fixed;
     bottom: 1rem;
     left: 1rem;
 
