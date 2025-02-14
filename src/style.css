@@ -56,6 +56,10 @@ header {
       letter-spacing: 1px;
     }
   }
+
+  @media (max-width: 500px) {
+    padding-inline: 0.25rem;
+  }
 }
 
 p {
