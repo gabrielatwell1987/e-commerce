@@ -58,7 +58,11 @@ header {
   }
 
   @media (max-width: 500px) {
-    padding-inline: 0.25rem;
+    padding-inline: 0.5rem;
+    width: 19em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
