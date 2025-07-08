@@ -27,6 +27,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+
+  @media (max-width: 500px) {
+    padding: 0 20px 20px 20px;
+  }
 }
 
 header {
@@ -54,12 +58,17 @@ header {
 
     @media (max-width: 500px) {
       letter-spacing: 1px;
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      padding-left: 0.5rem;
     }
   }
 
   @media (max-width: 500px) {
-    padding-inline: 0.5rem;
-    width: 100%;
+    padding-inline: 1rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    border-radius: 0;
+    justify-content: space-between;
   }
 }
 
@@ -93,6 +102,11 @@ p {
     border-radius: 50%;
     padding: 2px 6px;
     font-size: 12px;
+  }
+
+  @media (max-width: 500px) {
+    position: relative;
+    padding-right: 2rem;
   }
 }
 
@@ -138,6 +152,60 @@ p {
 
     &:hover {
       opacity: 0.8;
+    }
+  }
+
+  & .product-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+
+    & img {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+
+  & .product-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & h3 a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: hsl(236, 94%, 67%);
+      }
+
+      &:focus {
+        outline: 2px solid hsl(236, 94%, 67%);
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  & .product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+
+    & .stars {
+      color: #ffd700;
+      font-size: 1rem;
+    }
+
+    & .rating-text {
+      color: #666;
+      font-size: 0.8rem;
     }
   }
 
@@ -265,7 +333,8 @@ button {
     font-weight: 700;
     transition: color 0.25s;
     color: hsl(0, 0%, 14%);
-
+    background: none;
+    border: none;
     cursor: pointer;
 
     &:hover {
@@ -294,6 +363,8 @@ button {
   gap: 20px;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
+  align-items: flex-start;
+  position: relative;
 
   & img {
     width: 80px;
@@ -304,42 +375,87 @@ button {
 
 .cart-item-details {
   flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  & .item-info {
+    flex-grow: 1;
+  }
+
+  & .quantity-and-remove {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: 1rem;
+  }
+}
+
+/* Remove item button in cart */
+.remove-item-btn {
+  background: hsl(0, 100%, 60%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: hsl(0, 100%, 50%);
+  }
+
+  &:focus {
+    outline: 2px solid hsl(0, 100%, 30%);
+    outline-offset: 2px;
+  }
+
+  & i {
+    font-size: 1rem;
+  }
 }
 
 #payment-form {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem 0;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  & .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -4em;
+  }
 
   & .one-line {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem 1rem;
+    gap: 1rem;
+    justify-content: space-between;
 
-    & label {
-      font-size: clamp(0.8rem, 1vw, 0.9rem);
-      margin-block: auto;
-      line-height: 1;
-    }
-
-    &:nth-child(1) {
-      width: 15%;
-    }
-
-    &:nth-child(2) {
-      width: 10%;
+    & .form-group {
+      flex: 1;
     }
   }
 
   & input {
-    padding: 0.2rem;
+    padding: 0.75rem;
     border: 2px solid #ddd;
     border-radius: 4px;
-    font-size: clamp(0.9rem, 1vw, 1.1rem);
-    width: 97%;
-    margin-inline: auto;
-    text-align: center;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: 2px solid hsl(236, 94%, 67%);
+      outline-offset: 2px;
+      border-color: hsl(236, 94%, 67%);
+    }
 
     &:user-valid {
       border-color: hsl(120, 100%, 35%);
@@ -348,36 +464,60 @@ button {
     &:user-invalid {
       border-color: hsl(0, 100%, 60%);
     }
+
+    &.error {
+      border-color: hsl(0, 100%, 60%) !important;
+      box-shadow: 0 0 0 2px hsla(0, 100%, 60%, 0.2);
+    }
   }
 
   & label {
     color: #000;
-    margin-inline: left;
     font-family: "Kanit", sans-serif;
-    font-size: clamp(0.8rem, 1vw, 1rem);
+    font-size: 0.9rem;
     font-weight: bold;
-    margin-bottom: -0.75rem;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
 
-    @media (max-width: 500px) {
-      margin-top: 0.05rem;
-      margin-bottom: -1rem;
+  @media (max-width: 500px) {
+    max-width: 100%;
+    padding: 0.5rem;
+
+    & .one-line {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    & input {
+      padding: 0.6rem;
+      font-size: 0.9rem;
     }
   }
 }
 
 #checkout-button {
   width: fit-content;
-  margin-inline: auto;
-  padding: 0.5rem 1.5rem;
-  background-color: hsl(0, 0%, 75%);
-  color: hsl(0, 0%, 14%);
+  margin: 1rem auto 0;
+  padding: 0.75rem 2rem;
+  background-color: hsl(236, 94%, 67%);
+  color: white;
   font-family: "Gravitas One", sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: hsl(0, 0%, 65%);
+  &:hover:not(:disabled) {
+    background-color: hsl(236, 94%, 60%);
+  }
+
+  &:disabled {
+    background-color: hsl(0, 0%, 75%);
+    color: hsl(0, 0%, 50%);
+    cursor: not-allowed;
   }
 }
 
@@ -437,4 +577,142 @@ footer {
 
 #cart-total {
   font-family: "Crete Round", serif;
+}
+
+/* Accessibility and SEO styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: hsl(236, 94%, 67%);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 10000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.error-message {
+  color: hsl(0, 100%, 60%);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+  min-height: 1rem;
+  text-align: center;
+  padding: 2rem;
+
+  & h2 {
+    color: hsl(0, 100%, 60%);
+    margin-bottom: 1rem;
+  }
+
+  & .retry-button {
+    background: hsl(236, 94%, 67%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+
+    &:hover {
+      background: hsl(236, 94%, 60%);
+    }
+  }
+}
+
+/* Cart status section */
+.cart-status {
+  margin-bottom: 2rem;
+}
+
+.products-section {
+  margin-bottom: 2rem;
+}
+
+/* Modal accessibility improvements */
+.modal[aria-hidden="true"] {
+  display: none;
+}
+
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+/* Button focus styles */
+button:focus,
+.cart-icon:focus {
+  outline: 2px solid hsl(236, 94%, 67%);
+  outline-offset: 2px;
+}
+
+/* Disabled button states */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: inherit;
+  }
+}
+
+/* Loading states and animations */
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Payment section styling */
+.payment-section {
+  margin-top: 1.5rem;
+
+  & #payment-heading {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
+
+/* Empty cart state */
+.empty-cart {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+
+  & p:first-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  & p:last-child {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 0.5rem;
+  }
 }

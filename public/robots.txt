@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Block common bot traps and admin areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /*.json$
+Disallow: /*?*utm_source=
+Disallow: /*?*utm_medium=
+Disallow: /*?*utm_campaign=
+
+# Allow all web crawlers access to CSS and JS files
+Allow: /src/
+Allow: /public/
+Allow: *.css
+Allow: *.js
+
+# Crawl delay (optional - adjust based on server capacity)
+Crawl-delay: 1
