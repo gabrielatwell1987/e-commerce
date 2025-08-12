@@ -48,7 +48,7 @@ function generateProductStructuredData() {
       position: index + 1,
       item: {
         "@type": "Product",
-        "@id": `https://your-domain.com/product/${product.id}`,
+        "@id": `https://fake-store-products.vercel.app/product/${product.id}`,
         name: product.title,
         description: product.description,
         image: product.image,
@@ -58,7 +58,7 @@ function generateProductStructuredData() {
           price: product.price,
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
-          url: `https://your-domain.com/product/${product.id}`,
+          url: `https://fake-store-products.vercel.app/product/${product.id}`,
         },
         aggregateRating: {
           "@type": "AggregateRating",
@@ -738,13 +738,13 @@ function addBreadcrumbStructuredData() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://your-domain.com/",
+        item: "https://fake-store-products.vercel.app/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Products",
-        item: "https://your-domain.com/products",
+        item: "https://fake-store-products.vercel.app/",
       },
     ],
   };

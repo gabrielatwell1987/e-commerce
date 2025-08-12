@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://fake-store-products.vercel.app/sitemap.xml
 
 # Block common bot traps and admin areas
 Disallow: /admin/
